@@ -2,6 +2,8 @@ var books = [];
 
 var fetch = function(query) {
 
+  $('#loader').removeClass('d-none');
+
   var queryUrl = "https://www.googleapis.com/books/v1/volumes?q=" + query.replace(' ','%20');
 
   $.ajax({
@@ -26,6 +28,8 @@ var addBooks = function(data) {
   });
 
   renderBooks();
+
+  $('#loader').addClass('d-none');
 
 };
 
